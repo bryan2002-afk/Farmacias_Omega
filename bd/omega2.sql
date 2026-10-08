@@ -1,0 +1,570 @@
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Versión del servidor:         10.4.32-MariaDB - mariadb.org binary distribution
+-- SO del servidor:              Win64
+-- HeidiSQL Versión:             12.21.0.7344
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+-- Volcando estructura de base de datos para omega2
+CREATE DATABASE IF NOT EXISTS `omega2` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+USE `omega2`;
+
+-- Volcando estructura para tabla omega2.apertura_caja
+CREATE TABLE IF NOT EXISTS `apertura_caja` (
+  `id_apertura` int(11) NOT NULL AUTO_INCREMENT,
+  `id_caja` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `monto_inicial` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `estado` tinyint(4) NOT NULL DEFAULT 1,
+  `fecha_apertura` datetime NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_apertura`),
+  KEY `idx_caja` (`id_caja`),
+  KEY `idx_usuario` (`id_usuario`),
+  CONSTRAINT `fk_apertura_caja` FOREIGN KEY (`id_caja`) REFERENCES `caja` (`id_caja`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_apertura_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla omega2.apertura_caja: ~68 rows (aproximadamente)
+INSERT INTO `apertura_caja` (`id_apertura`, `id_caja`, `id_usuario`, `monto_inicial`, `estado`, `fecha_apertura`) VALUES
+	(17, 1, 8, 0.00, 0, '2026-05-03 21:38:48'),
+	(18, 1, 8, 0.00, 0, '2026-05-03 21:47:34'),
+	(19, 1, 8, 0.00, 0, '2026-05-03 22:00:04'),
+	(20, 1, 8, 0.00, 0, '2026-05-03 22:43:23'),
+	(21, 1, 8, 0.00, 0, '2026-05-03 23:15:50'),
+	(22, 1, 8, 0.00, 0, '2026-05-05 23:44:35'),
+	(23, 1, 8, 0.00, 0, '2026-05-06 00:11:42'),
+	(24, 1, 8, 0.00, 0, '2026-05-06 00:14:25'),
+	(25, 1, 14, 0.00, 0, '2026-05-06 00:21:15'),
+	(26, 1, 14, 0.00, 0, '2026-05-06 00:28:06'),
+	(27, 1, 8, 0.00, 0, '2026-05-06 01:43:41'),
+	(28, 1, 8, 0.00, 0, '2026-05-06 03:07:20'),
+	(29, 1, 8, 0.00, 0, '2026-05-06 11:24:24'),
+	(30, 1, 14, 0.00, 0, '2026-05-06 11:58:31'),
+	(31, 1, 8, 0.00, 0, '2026-05-06 11:59:30'),
+	(32, 1, 8, 0.00, 0, '2026-05-06 12:52:25'),
+	(33, 1, 8, 0.00, 0, '2026-05-06 13:48:09'),
+	(34, 1, 8, 0.00, 0, '2026-05-06 14:27:26'),
+	(35, 1, 8, 0.00, 0, '2026-05-06 15:19:08'),
+	(36, 1, 8, 0.00, 0, '2026-05-06 15:46:53'),
+	(37, 1, 8, 0.00, 0, '2026-05-06 17:21:38'),
+	(38, 1, 8, 0.00, 0, '2026-05-06 18:33:58'),
+	(39, 1, 8, 0.00, 0, '2026-05-06 18:55:52'),
+	(40, 1, 8, 0.00, 0, '2026-05-06 20:30:13'),
+	(41, 1, 8, 0.00, 0, '2026-05-06 20:52:55'),
+	(42, 1, 8, 0.00, 0, '2026-05-06 21:00:42'),
+	(43, 1, 8, 0.00, 0, '2026-05-06 22:38:32'),
+	(44, 1, 8, 0.00, 0, '2026-05-07 08:45:52'),
+	(45, 1, 8, 0.00, 0, '2026-05-07 10:12:07'),
+	(46, 1, 8, 0.00, 0, '2026-05-07 11:21:07'),
+	(47, 1, 8, 0.00, 0, '2026-05-07 23:58:17'),
+	(48, 1, 8, 0.00, 0, '2026-05-08 01:29:18'),
+	(49, 1, 8, 0.00, 0, '2026-05-11 19:32:53'),
+	(50, 1, 8, 0.00, 0, '2026-05-11 20:22:30'),
+	(51, 1, 8, 0.00, 0, '2026-05-11 20:31:11'),
+	(52, 1, 8, 0.00, 0, '2026-05-11 21:09:32'),
+	(53, 1, 8, 0.00, 0, '2026-05-11 21:21:04'),
+	(54, 1, 8, 0.00, 0, '2026-05-11 21:21:24'),
+	(55, 1, 8, 0.00, 0, '2026-05-11 22:17:05'),
+	(56, 1, 8, 0.00, 0, '2026-05-11 22:21:51'),
+	(57, 1, 8, 0.00, 0, '2026-05-11 22:30:29'),
+	(58, 1, 8, 0.00, 0, '2026-05-11 22:31:11'),
+	(59, 1, 14, 0.00, 0, '2026-05-11 23:25:47'),
+	(60, 1, 8, 0.00, 0, '2026-05-11 23:47:55'),
+	(61, 1, 14, 0.00, 0, '2026-05-11 23:48:29'),
+	(62, 1, 8, 0.00, 0, '2026-05-11 23:54:37'),
+	(63, 1, 8, 0.00, 0, '2026-05-12 00:05:15'),
+	(64, 1, 8, 0.00, 0, '2026-05-12 00:26:59'),
+	(65, 1, 8, 0.00, 0, '2026-05-12 00:27:52'),
+	(66, 1, 8, 0.00, 0, '2026-05-12 01:01:40'),
+	(67, 1, 8, 0.00, 0, '2026-05-12 01:27:31'),
+	(68, 1, 8, 0.00, 0, '2026-05-12 01:30:20'),
+	(69, 1, 14, 0.00, 0, '2026-05-12 01:45:15'),
+	(70, 1, 8, 0.00, 0, '2026-05-12 01:45:54'),
+	(71, 1, 8, 0.00, 0, '2026-05-12 01:54:30'),
+	(72, 1, 8, 0.00, 0, '2026-05-12 02:23:39'),
+	(73, 1, 8, 0.00, 0, '2026-05-12 16:09:30'),
+	(74, 1, 8, 0.00, 0, '2026-05-12 16:50:07'),
+	(75, 1, 8, 0.00, 0, '2026-05-12 17:03:09'),
+	(76, 1, 8, 0.00, 0, '2026-05-12 18:27:25'),
+	(77, 1, 8, 0.00, 0, '2026-05-12 20:00:58'),
+	(78, 1, 8, 0.00, 0, '2026-05-19 05:56:35'),
+	(79, 1, 8, 0.00, 0, '2026-05-19 06:06:45'),
+	(80, 1, 8, 0.00, 0, '2026-05-20 00:22:41'),
+	(81, 1, 8, 0.00, 0, '2026-05-20 00:31:37'),
+	(82, 1, 8, 0.00, 0, '2026-05-20 02:03:21'),
+	(83, 1, 8, 0.00, 0, '2026-05-20 20:12:50'),
+	(84, 1, 8, 0.00, 0, '2026-05-22 16:29:51'),
+	(85, 1, 8, 0.00, 0, '2026-10-08 01:05:11'),
+	(86, 1, 8, 0.00, 1, '2026-10-08 01:06:08');
+
+-- Volcando estructura para tabla omega2.articulo
+CREATE TABLE IF NOT EXISTS `articulo` (
+  `id_articulo` int(11) NOT NULL AUTO_INCREMENT,
+  `codigo` varchar(255) NOT NULL,
+  `nombre` varchar(150) NOT NULL,
+  `descripcion` varchar(300) DEFAULT NULL,
+  `precio` decimal(10,2) NOT NULL,
+  `stock` int(11) NOT NULL,
+  `id_categoria` int(11) DEFAULT NULL,
+  `imagen` varchar(255) DEFAULT NULL,
+  `estado` tinyint(4) NOT NULL DEFAULT 1,
+  `fecha_registro` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_articulo`) USING BTREE,
+  UNIQUE KEY `codigo` (`codigo`) USING BTREE,
+  KEY `id_categoria` (`id_categoria`) USING BTREE,
+  CONSTRAINT `articulo_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Volcando datos para la tabla omega2.articulo: ~8 rows (aproximadamente)
+INSERT INTO `articulo` (`id_articulo`, `codigo`, `nombre`, `descripcion`, `precio`, `stock`, `id_categoria`, `imagen`, `estado`, `fecha_registro`) VALUES
+	(95, 'MED-3A3F6', 'Buscapina', 'Alviar el dolor.', 55.00, 97, 1, 'img_69f19af8b71db.png', 1, '2026-04-28 19:33:17'),
+	(97, 'HIG-2B13D', 'Cotonetes', 'fbrtry', 123.00, 343, 4, 'img_69f161012accb.png', 1, '2026-04-28 19:38:09'),
+	(103, 'ORT-18894', 'Plantillas Ortopedicas', 'Plantillas para pie diabetico.', 300.00, 130, 9, 'img_69f1648a17e82.png', 1, '2026-04-28 19:53:14'),
+	(104, 'BEB-E3A91', 'Pañales', 'pañales primera etapa', 400.00, 846, 6, 'img_69f19b9ae3399.png', 1, '2026-04-28 23:48:11'),
+	(106, 'HIG-8B53D', 'Desodorante', 'Desodorante en aerosol.', 43.00, 119, 4, 'img_69f2ca0d3a3c0.png', 1, '2026-04-29 20:48:22'),
+	(107, 'HIG-E627A', 'Crema POND´S', 'Crema Facial de Mujer.', 150.00, 91, 4, 'img_69faf753e5a17.png', 1, '2026-05-06 02:09:55'),
+	(109, 'HIG-24782', 'Crema Berry', 'Crema para manos.', 200.00, 19, 4, 'img_69faf82d23e15.png', 1, '2026-05-06 02:13:33'),
+	(110, 'HIG-24C8C', 'Corta Uñas', 'Corta uñas para adulto.', 58.00, 19, 4, 'img_6a02852c239d6.png', 1, '2026-05-11 19:41:00');
+
+-- Volcando estructura para tabla omega2.caja
+CREATE TABLE IF NOT EXISTS `caja` (
+  `id_caja` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_caja`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla omega2.caja: ~1 rows (aproximadamente)
+INSERT INTO `caja` (`id_caja`, `nombre`) VALUES
+	(1, 'Caja Principal');
+
+-- Volcando estructura para tabla omega2.categoria
+CREATE TABLE IF NOT EXISTS `categoria` (
+  `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `descripcion` varchar(250) DEFAULT NULL,
+  `prefijo` varchar(50) NOT NULL,
+  `estado` tinyint(1) DEFAULT 1,
+  `fecha_registro` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_categoria`),
+  UNIQUE KEY `nombre` (`nombre`),
+  UNIQUE KEY `prefijo` (`prefijo`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla omega2.categoria: ~10 rows (aproximadamente)
+INSERT INTO `categoria` (`id_categoria`, `nombre`, `descripcion`, `prefijo`, `estado`, `fecha_registro`) VALUES
+	(1, 'Medicamentos', 'Analgésicos, antibióticos y tratamientos generales', 'MED', 1, '2026-04-29 00:36:27'),
+	(2, 'Dermatología', 'Productos para el cuidado de la piel', 'DER', 1, '2026-04-29 00:36:27'),
+	(3, 'Perfumería', 'Fragancias y productos aromáticos', 'PER', 1, '2026-04-29 00:36:27'),
+	(4, 'Higiene Personal', 'Productos de limpieza y cuidado diario', 'HIG', 1, '2026-04-29 00:36:27'),
+	(5, 'Vitaminas y Suplementos', 'Complementos alimenticios y vitaminas', 'VIT', 1, '2026-04-29 00:36:27'),
+	(6, 'Bebés y Maternidad', 'Productos para el cuidado del bebé', 'BEB', 1, '2026-04-29 00:36:27'),
+	(7, 'Cuidado Capilar', 'Shampoo, tratamientos y tintes', 'CAP', 1, '2026-04-29 00:36:27'),
+	(8, 'Equipo Médico', 'Termómetros, baumanómetros, etc.', 'EQM', 1, '2026-04-29 00:36:27'),
+	(9, 'Ortopedia', 'Soportes, férulas y productos ortopédicos', 'ORT', 1, '2026-04-29 00:36:27'),
+	(10, 'Ofertas', 'Productos en promociónn', 'OFE', 1, '2026-04-29 00:36:27');
+
+-- Volcando estructura para tabla omega2.cierre_caja
+CREATE TABLE IF NOT EXISTS `cierre_caja` (
+  `id_cierre` int(11) NOT NULL AUTO_INCREMENT,
+  `id_apertura` int(11) NOT NULL,
+  `monto_final` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `fecha_cierre` datetime NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_cierre`),
+  KEY `idx_apertura` (`id_apertura`),
+  CONSTRAINT `fk_cierre_caja` FOREIGN KEY (`id_apertura`) REFERENCES `apertura_caja` (`id_apertura`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla omega2.cierre_caja: ~68 rows (aproximadamente)
+INSERT INTO `cierre_caja` (`id_cierre`, `id_apertura`, `monto_final`, `fecha_cierre`) VALUES
+	(17, 17, 0.00, '2026-05-03 21:47:21'),
+	(18, 18, 0.00, '2026-05-03 21:59:59'),
+	(19, 19, 0.00, '2026-05-03 22:43:09'),
+	(20, 20, 0.00, '2026-05-03 23:15:43'),
+	(21, 21, 0.00, '2026-05-03 23:52:42'),
+	(22, 22, 0.00, '2026-05-06 00:11:37'),
+	(23, 23, 0.00, '2026-05-06 00:13:28'),
+	(24, 24, 0.00, '2026-05-06 00:21:04'),
+	(25, 25, 0.00, '2026-05-06 00:26:39'),
+	(26, 26, 0.00, '2026-05-06 01:43:31'),
+	(27, 27, 0.00, '2026-05-06 03:06:54'),
+	(28, 28, 0.00, '2026-05-06 03:08:02'),
+	(29, 29, 0.00, '2026-05-06 11:58:08'),
+	(30, 30, 0.00, '2026-05-06 11:59:19'),
+	(31, 31, 0.00, '2026-05-06 12:52:11'),
+	(32, 32, 0.00, '2026-05-06 12:57:56'),
+	(33, 33, 0.00, '2026-05-06 14:27:13'),
+	(34, 34, 0.00, '2026-05-06 15:18:56'),
+	(35, 35, 0.00, '2026-05-06 15:46:36'),
+	(36, 36, 0.00, '2026-05-06 16:23:30'),
+	(37, 37, 0.00, '2026-05-06 18:33:40'),
+	(38, 38, 0.00, '2026-05-06 18:55:40'),
+	(39, 39, 0.00, '2026-05-06 20:29:54'),
+	(40, 40, 0.00, '2026-05-06 20:52:42'),
+	(41, 41, 0.00, '2026-05-06 21:00:20'),
+	(42, 42, 0.00, '2026-05-06 21:30:37'),
+	(43, 43, 0.00, '2026-05-07 00:20:55'),
+	(44, 44, 0.00, '2026-05-07 10:11:48'),
+	(45, 45, 0.00, '2026-05-07 10:48:33'),
+	(46, 46, 0.00, '2026-05-07 12:09:49'),
+	(47, 47, 0.00, '2026-05-08 01:29:03'),
+	(48, 48, 0.00, '2026-05-08 01:48:50'),
+	(49, 49, 0.00, '2026-05-11 20:22:09'),
+	(50, 50, 0.00, '2026-05-11 20:25:40'),
+	(51, 51, 0.00, '2026-05-11 21:09:17'),
+	(52, 52, 0.00, '2026-05-11 21:20:39'),
+	(53, 53, 0.00, '2026-05-11 21:21:12'),
+	(54, 54, 0.00, '2026-05-11 22:16:52'),
+	(55, 55, 0.00, '2026-05-11 22:21:34'),
+	(56, 56, 0.00, '2026-05-11 22:30:16'),
+	(57, 57, 0.00, '2026-05-11 22:30:45'),
+	(58, 58, 0.00, '2026-05-11 23:25:33'),
+	(59, 59, 0.00, '2026-05-11 23:47:35'),
+	(60, 60, 0.00, '2026-05-11 23:48:00'),
+	(61, 61, 0.00, '2026-05-11 23:54:18'),
+	(62, 62, 0.00, '2026-05-12 00:04:58'),
+	(63, 63, 0.00, '2026-05-12 00:26:38'),
+	(64, 64, 0.00, '2026-05-12 00:27:32'),
+	(65, 65, 0.00, '2026-05-12 01:01:16'),
+	(66, 66, 0.00, '2026-05-12 01:06:01'),
+	(67, 67, 0.00, '2026-05-12 01:30:16'),
+	(68, 68, 0.00, '2026-05-12 01:44:35'),
+	(69, 69, 0.00, '2026-05-12 01:45:33'),
+	(70, 70, 0.00, '2026-05-12 01:54:14'),
+	(71, 71, 0.00, '2026-05-12 02:23:25'),
+	(72, 72, 0.00, '2026-05-12 02:38:53'),
+	(73, 73, 0.00, '2026-05-12 16:49:59'),
+	(74, 74, 0.00, '2026-05-12 17:02:48'),
+	(75, 75, 0.00, '2026-05-12 18:26:57'),
+	(76, 76, 0.00, '2026-05-12 18:39:40'),
+	(77, 77, 0.00, '2026-05-12 22:36:04'),
+	(78, 78, 0.00, '2026-05-19 05:58:22'),
+	(79, 79, 0.00, '2026-05-19 06:20:33'),
+	(80, 80, 0.00, '2026-05-20 00:31:23'),
+	(81, 81, 0.00, '2026-05-20 00:39:51'),
+	(82, 82, 0.00, '2026-05-20 02:03:36'),
+	(83, 83, 0.00, '2026-05-22 10:38:11'),
+	(84, 84, 0.00, '2026-06-29 17:15:50'),
+	(85, 85, 0.00, '2026-10-08 01:05:53');
+
+-- Volcando estructura para tabla omega2.cliente
+CREATE TABLE IF NOT EXISTS `cliente` (
+  `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) NOT NULL,
+  `apellido` varchar(100) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `correo` varchar(100) DEFAULT NULL,
+  `estado` tinyint(4) NOT NULL DEFAULT 1,
+  `fecha_registro` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_cliente`),
+  UNIQUE KEY `correo` (`correo`),
+  UNIQUE KEY `telefono` (`telefono`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla omega2.cliente: ~3 rows (aproximadamente)
+INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `telefono`, `correo`, `estado`, `fecha_registro`) VALUES
+	(1, 'Bryan', 'Suriano', '9512309564', 'surianobryan@gmail.com', 1, '2026-05-02 05:58:16'),
+	(8, 'Julian', 'Hernandez', '9514650437', 'julian_suriano@gmail.com', 1, '2026-05-02 21:29:27'),
+	(10, 'Carlos', 'Hernandez', '9517894578', 'carlos@gmail.com', 1, '2026-05-02 21:42:15');
+
+-- Volcando estructura para tabla omega2.detalle_venta
+CREATE TABLE IF NOT EXISTS `detalle_venta` (
+  `id_detalle` int(11) NOT NULL AUTO_INCREMENT,
+  `id_venta` int(11) NOT NULL,
+  `id_articulo` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL DEFAULT 1,
+  `precio` decimal(10,2) DEFAULT 0.00,
+  `subtotal` decimal(10,2) DEFAULT 0.00,
+  `fecha_registro` datetime NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_detalle`) USING BTREE,
+  KEY `idx_venta` (`id_venta`) USING BTREE,
+  KEY `idx_articulo` (`id_articulo`) USING BTREE,
+  CONSTRAINT `fk_detalleventa_articulo` FOREIGN KEY (`id_articulo`) REFERENCES `articulo` (`id_articulo`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_detalleventa_venta` FOREIGN KEY (`id_venta`) REFERENCES `venta` (`id_venta`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla omega2.detalle_venta: ~18 rows (aproximadamente)
+INSERT INTO `detalle_venta` (`id_detalle`, `id_venta`, `id_articulo`, `cantidad`, `precio`, `subtotal`, `fecha_registro`) VALUES
+	(60, 108, 110, 1, 58.00, 58.00, '2026-05-12 22:04:51'),
+	(61, 108, 107, 1, 150.00, 150.00, '2026-05-12 22:04:51'),
+	(62, 108, 106, 1, 43.00, 43.00, '2026-05-12 22:04:51'),
+	(63, 109, 95, 1, 55.00, 55.00, '2026-05-12 22:06:06'),
+	(64, 109, 103, 1, 300.00, 300.00, '2026-05-12 22:06:06'),
+	(65, 109, 110, 1, 58.00, 58.00, '2026-05-12 22:06:06'),
+	(66, 110, 95, 1, 55.00, 55.00, '2026-05-12 22:09:41'),
+	(67, 110, 106, 1, 43.00, 43.00, '2026-05-12 22:09:41'),
+	(68, 110, 103, 1, 300.00, 300.00, '2026-05-12 22:09:41'),
+	(69, 111, 104, 50, 400.00, 20000.00, '2026-05-12 22:11:38'),
+	(70, 112, 109, 1, 200.00, 200.00, '2026-05-12 22:16:53'),
+	(71, 112, 107, 1, 150.00, 150.00, '2026-05-12 22:16:53'),
+	(72, 112, 104, 1, 400.00, 400.00, '2026-05-12 22:17:56'),
+	(73, 112, 103, 1, 300.00, 300.00, '2026-05-12 22:19:32'),
+	(74, 113, 104, 100, 400.00, 40000.00, '2026-05-12 22:27:34'),
+	(75, 114, 109, 10, 200.00, 2000.00, '2026-05-12 22:29:29'),
+	(76, 115, 95, 1, 55.00, 55.00, '2026-05-19 06:16:32'),
+	(77, 116, 110, 1, 58.00, 58.00, '2026-05-20 20:13:13');
+
+-- Volcando estructura para tabla omega2.direccion
+CREATE TABLE IF NOT EXISTS `direccion` (
+  `id_direccion` int(11) NOT NULL AUTO_INCREMENT,
+  `calle` varchar(100) DEFAULT NULL,
+  `numero` varchar(20) DEFAULT NULL,
+  `colonia` varchar(100) DEFAULT NULL,
+  `municipio` varchar(100) DEFAULT NULL,
+  `ciudad` varchar(100) DEFAULT NULL,
+  `estado` varchar(100) DEFAULT 'Oaxaca',
+  `pais` varchar(100) DEFAULT 'México',
+  `codigo_postal` varchar(20) DEFAULT NULL,
+  `referencia` varchar(200) DEFAULT NULL,
+  `activo` tinyint(1) DEFAULT 1,
+  `fecha_registro` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_direccion`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla omega2.direccion: ~6 rows (aproximadamente)
+INSERT INTO `direccion` (`id_direccion`, `calle`, `numero`, `colonia`, `municipio`, `ciudad`, `estado`, `pais`, `codigo_postal`, `referencia`, `activo`, `fecha_registro`) VALUES
+	(1, 'Privada de Belen', '22', 'Samaritana', 'Sta. Maria Atzompa', 'Oaxaca de Juarez', 'Oaxaca', 'México', '71222', 'Porton de color negro', 1, '2026-04-29 11:53:42'),
+	(3, 'Calle Morelos', '45', 'Reforma', 'Oaxaca de Juarez', 'Oaxaca', 'Oaxaca', 'Mexico', '68050', 'A un lado de la farmacia', 1, '2026-04-29 12:07:10'),
+	(4, 'Privada Los Pinos', '18', 'Volcanes', 'Oaxaca de Juarez', 'Oaxaca', 'Oaxaca', 'Mexico', '68020', 'Casa color azul', 1, '2026-04-29 12:07:10'),
+	(5, 'Calle Hidalgo', '302', 'Centro', 'Santa Cruz Xoxocotlan', 'Xoxocotlan', 'Oaxaca', 'Mexico', '71230', 'Cerca del mercado municipal', 1, '2026-04-29 12:07:10'),
+	(6, 'Av. Universidad', '1550', 'Candiani', 'Oaxaca de Juarez', 'Oaxaca', 'Oaxaca', 'Mexico', '68130', 'Frente a plaza comercial', 1, '2026-04-29 12:07:10'),
+	(7, 'Av. Benito Juarez', '100', 'Reforma', 'Oaxaca de Juarez', 'Oaxaca', 'Oaxaca', 'México', '68000', 'texto texto texto texto', 1, '2026-04-29 13:29:02');
+
+-- Volcando estructura para tabla omega2.direccion_cliente
+CREATE TABLE IF NOT EXISTS `direccion_cliente` (
+  `id_direccion` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(11) NOT NULL,
+  `calle` varchar(100) NOT NULL,
+  `numero` varchar(20) NOT NULL,
+  `colonia` varchar(100) NOT NULL,
+  `municipio` varchar(100) NOT NULL,
+  `referencias` varchar(255) DEFAULT NULL,
+  `latitud` decimal(10,8) DEFAULT NULL,
+  `longitud` decimal(11,8) DEFAULT NULL,
+  `principal` tinyint(1) DEFAULT 0,
+  `fecha_registro` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_direccion`),
+  KEY `idx_cliente` (`id_cliente`),
+  CONSTRAINT `fk_direccion_cliente_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla omega2.direccion_cliente: ~1 rows (aproximadamente)
+INSERT INTO `direccion_cliente` (`id_direccion`, `id_cliente`, `calle`, `numero`, `colonia`, `municipio`, `referencias`, `latitud`, `longitud`, `principal`, `fecha_registro`) VALUES
+	(1, 1, 'Pruv. de Belen', '22', 'Samaritana', 'Sta. Maria Atzompa', 'Porton negro', NULL, NULL, 0, '2026-05-02 05:59:04');
+
+-- Volcando estructura para tabla omega2.empleado
+CREATE TABLE IF NOT EXISTS `empleado` (
+  `id_empleado` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) NOT NULL,
+  `nombre_seg` varchar(100) DEFAULT NULL,
+  `apellido_p` varchar(100) NOT NULL,
+  `apellido_m` varchar(100) DEFAULT NULL,
+  `curp` varchar(50) NOT NULL,
+  `telefono` varchar(15) DEFAULT NULL,
+  `correo` varchar(100) DEFAULT NULL,
+  `id_direccion` int(11) DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT 1,
+  `imagen` varchar(255) DEFAULT NULL,
+  `fecha_registro` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_empleado`) USING BTREE,
+  UNIQUE KEY `curp` (`curp`) USING BTREE,
+  KEY `fk_empleado_direccion` (`id_direccion`),
+  CONSTRAINT `fk_empleado_direccion` FOREIGN KEY (`id_direccion`) REFERENCES `direccion` (`id_direccion`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla omega2.empleado: ~3 rows (aproximadamente)
+INSERT INTO `empleado` (`id_empleado`, `nombre`, `nombre_seg`, `apellido_p`, `apellido_m`, `curp`, `telefono`, `correo`, `id_direccion`, `estado`, `imagen`, `fecha_registro`) VALUES
+	(11, 'Bryan', 'Julian', 'Suriano', 'Ramirez', 'SURB021227HVZRMRA7', '9514650437', 'surianobryan@gmail.com', 1, 1, 'img_69d67b7b030ea.png', '2026-04-29 00:37:14'),
+	(34, 'Angel', 'Gabriel', 'Hernandez', 'Hernandez', 'HERJ041626HGZEMRA9', '9517891854', 'angel@gmail.com', 6, 1, 'img_69fadd4a1be60.jpg', '2026-05-06 00:18:50'),
+	(35, 'Jesus', 'Antonio', 'Martinez', 'Martinez', 'JOSJ041626HGZEMRO5', '9512306900', 'jesus_A@gmail.com', 3, 1, 'img_6a03b0ad55b9b.jpg', '2026-05-12 16:58:53');
+
+-- Volcando estructura para tabla omega2.metodo_pago
+CREATE TABLE IF NOT EXISTS `metodo_pago` (
+  `id_metodo` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) DEFAULT NULL,
+  `fecha_creacion` datetime NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_metodo`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla omega2.metodo_pago: ~3 rows (aproximadamente)
+INSERT INTO `metodo_pago` (`id_metodo`, `nombre`, `fecha_creacion`) VALUES
+	(1, 'Efectivo', '2026-05-02 06:17:46'),
+	(2, 'Tarjeta', '2026-05-02 06:17:46'),
+	(3, 'Transferencia', '2026-05-02 06:17:46');
+
+-- Volcando estructura para tabla omega2.modulo
+CREATE TABLE IF NOT EXISTS `modulo` (
+  `id_modulo` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) NOT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_modulo`)
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla omega2.modulo: 15 rows
+INSERT INTO `modulo` (`id_modulo`, `nombre`, `descripcion`) VALUES
+	(1, 'mi_perfil', 'Información del Usuario (Perfil) conectado actualmente.'),
+	(2, 'dashboard', 'Representación gráfica y concisa de datos.'),
+	(3, 'ventas', 'Modulo de Ventas.'),
+	(4, 'clientes', 'Modulo de Clientes.'),
+	(5, 'compras', 'Modulo de Compras.'),
+	(6, 'proveedores', 'Modulo de Proveedores.'),
+	(7, 'inventario', 'Control de inventario.'),
+	(8, 'productos_lista', 'Modulo de Lista de Productos.'),
+	(9, 'categorias', 'Modulo de Categorías.'),
+	(10, 'empleados', 'Gestión de empleados.'),
+	(11, 'perfiles', 'Gestión de Perfiles.'),
+	(12, 'usuarios', 'Gestión de usuarios.'),
+	(13, 'reportes', 'Reportes de sistemas.'),
+	(14, 'direcciones', 'Modulo de direcciónes. '),
+	(15, 'caja', 'Apertura y cierre de caja.');
+
+-- Volcando estructura para tabla omega2.perfil
+CREATE TABLE IF NOT EXISTS `perfil` (
+  `id_perfil` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT 1,
+  `fecha_registro` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_perfil`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Volcando datos para la tabla omega2.perfil: ~8 rows (aproximadamente)
+INSERT INTO `perfil` (`id_perfil`, `nombre`, `descripcion`, `estado`, `fecha_registro`) VALUES
+	(3, 'Administrador', 'Control total.', 1, '2026-04-29 00:37:45'),
+	(5, 'Cajero', 'Ventas Fisicas.', 1, '2026-04-29 00:37:45'),
+	(9, 'Vendedor', 'Ventas + Clientes.', 1, '2026-05-06 00:13:02'),
+	(10, 'Almacén / Inventario', 'Productos y Stock.', 1, '2026-05-12 16:53:01'),
+	(11, 'Supervisor', 'Ver reportes y autorizar.', 1, '2026-05-12 16:53:31'),
+	(12, 'Cliente', 'Compra Online.', 1, '2026-05-12 16:54:00'),
+	(13, 'Repartidor', 'Ver pedidos asignados.', 1, '2026-05-12 16:54:40'),
+	(14, 'Soporte', 'Atención al cliente.', 1, '2026-05-12 16:55:08');
+
+-- Volcando estructura para tabla omega2.permiso
+CREATE TABLE IF NOT EXISTS `permiso` (
+  `id_permiso` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_permiso`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla omega2.permiso: 4 rows
+INSERT INTO `permiso` (`id_permiso`, `nombre`) VALUES
+	(1, 'Ver'),
+	(2, 'Crear'),
+	(3, 'Editar'),
+	(4, 'Eliminar');
+
+-- Volcando estructura para tabla omega2.proveedor
+CREATE TABLE IF NOT EXISTS `proveedor` (
+  `id_proveedor` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) NOT NULL,
+  `telefono` varchar(15) DEFAULT NULL,
+  `correo` varchar(50) DEFAULT NULL,
+  `imagen` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fecha_registro` datetime DEFAULT current_timestamp(),
+  `id_direccion` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_proveedor`),
+  KEY `fk_proveedor_direccion` (`id_direccion`),
+  CONSTRAINT `fk_proveedor_direccion` FOREIGN KEY (`id_direccion`) REFERENCES `direccion` (`id_direccion`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla omega2.proveedor: ~2 rows (aproximadamente)
+INSERT INTO `proveedor` (`id_proveedor`, `nombre`, `telefono`, `correo`, `imagen`, `fecha_registro`, `id_direccion`) VALUES
+	(1, 'Laboratorio Amaya', '9511457890', 'lab_amaya@gmail.com', 'lab_amaya.png', '2026-04-29 00:35:17', 6),
+	(6, 'Laboratorio Juarez', '9512309563', 'lab_juarez@gmail.com', 'img_69f29768830ee.png', '2026-04-29 17:27:01', 6);
+
+-- Volcando estructura para tabla omega2.usuarios
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(50) NOT NULL,
+  `correo` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `id_empleado` int(11) DEFAULT NULL,
+  `id_perfil` int(11) DEFAULT NULL,
+  `imagen` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT 1,
+  `fecha_registro` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_usuario`) USING BTREE,
+  UNIQUE KEY `usuario` (`usuario`) USING BTREE,
+  UNIQUE KEY `correo` (`correo`) USING BTREE,
+  KEY `id_empleado` (`id_empleado`) USING BTREE,
+  KEY `id_perfil` (`id_perfil`) USING BTREE,
+  CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`id_empleado`) REFERENCES `empleado` (`id_empleado`),
+  CONSTRAINT `usuarios_ibfk_2` FOREIGN KEY (`id_perfil`) REFERENCES `perfil` (`id_perfil`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla omega2.usuarios: ~3 rows (aproximadamente)
+INSERT INTO `usuarios` (`id_usuario`, `usuario`, `correo`, `password`, `id_empleado`, `id_perfil`, `imagen`, `estado`, `fecha_registro`) VALUES
+	(8, 'Admin_1', 'admin@gmail.com', '$2y$10$ptTf4q74aOyPlVsmKNSPfOFYCQ92OHrjJqEz3EExvQP9OTfbQwgnC', 11, 3, 'img_6ac740cd290f1.jpg', 1, '2026-04-29 00:38:23'),
+	(14, 'Vendedor_1', 'vendedor@gmail.com', '$2y$10$bSOSX2vzV1iJ.mSU23BDfObf8KC7V56RXpXHvisBrG6ZavrI3EgmW', 34, 9, 'img_69fadd95136ad.jpg', 1, '2026-05-06 00:20:05'),
+	(15, 'Cajero_1', 'cajero@gmail.com', '$2y$10$f.chRuU4bPU7q1dvtwp6i.WCaCDRHPwC2vcqrHqud2EAGaHDQ7k3m', 35, 5, 'img_6a03b10cef394.jpg', 1, '2026-05-12 17:00:28');
+
+-- Volcando estructura para tabla omega2.venta
+CREATE TABLE IF NOT EXISTS `venta` (
+  `id_venta` int(11) NOT NULL AUTO_INCREMENT,
+  `codigo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `subtotal` decimal(10,2) DEFAULT 0.00,
+  `IVA` decimal(10,2) DEFAULT 0.00,
+  `total` decimal(10,2) DEFAULT 0.00,
+  `fecha_registro` datetime NOT NULL DEFAULT current_timestamp(),
+  `Estado` tinyint(4) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id_venta`) USING BTREE,
+  UNIQUE KEY `code` (`codigo`) USING BTREE,
+  KEY `idx_usuario` (`id_usuario`) USING BTREE,
+  CONSTRAINT `fk_venta_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla omega2.venta: ~9 rows (aproximadamente)
+INSERT INTO `venta` (`id_venta`, `codigo`, `id_usuario`, `subtotal`, `IVA`, `total`, `fecha_registro`, `Estado`) VALUES
+	(108, 'COD-242AF', 8, 251.00, 40.16, 291.16, '2026-05-12 22:04:45', 1),
+	(109, 'COD-743CB', 8, 413.00, 66.08, 479.08, '2026-05-12 22:05:52', 1),
+	(110, 'COD-18DC1', 8, 398.00, 63.68, 461.68, '2026-05-12 22:09:31', 1),
+	(111, 'COD-19585', 8, 20000.00, 3200.00, 23200.00, '2026-05-12 22:11:21', 1),
+	(112, 'COD-CC1D4', 8, 300.00, 48.00, 348.00, '2026-05-12 22:16:48', 1),
+	(113, 'COD-98EEF', 8, 40000.00, 6400.00, 46400.00, '2026-05-12 22:27:27', 1),
+	(114, 'COD-91FE3', 8, 2000.00, 320.00, 2320.00, '2026-05-12 22:29:22', 1),
+	(115, 'COD-34E86', 8, 55.00, 8.80, 63.80, '2026-05-19 06:10:35', 1),
+	(116, 'COD-EB7C5', 8, 58.00, 9.28, 67.28, '2026-05-20 20:13:10', 0);
+
+-- Volcando estructura para tabla omega2.venta_cliente_metodo
+CREATE TABLE IF NOT EXISTS `venta_cliente_metodo` (
+  `id_venta` int(11) NOT NULL,
+  `id_metodo` int(11) DEFAULT NULL,
+  `vendedor` varchar(100) DEFAULT NULL,
+  `nombre_c` varchar(255) DEFAULT NULL,
+  `apellido_c` varchar(255) DEFAULT NULL,
+  `telefono` varchar(50) DEFAULT NULL,
+  `fecha_registro` datetime NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_venta`),
+  UNIQUE KEY `telefono` (`telefono`) USING BTREE,
+  KEY `idx_metodo` (`id_metodo`) USING BTREE,
+  CONSTRAINT `fk_venta_cliente_metodo_metodo` FOREIGN KEY (`id_metodo`) REFERENCES `metodo_pago` (`id_metodo`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_venta_cliente_metodo_venta` FOREIGN KEY (`id_venta`) REFERENCES `venta` (`id_venta`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla omega2.venta_cliente_metodo: ~9 rows (aproximadamente)
+INSERT INTO `venta_cliente_metodo` (`id_venta`, `id_metodo`, `vendedor`, `nombre_c`, `apellido_c`, `telefono`, `fecha_registro`) VALUES
+	(108, 1, 'Bryan', 'Cliente General', '', '', '2026-05-12 22:05:18'),
+	(109, 3, 'Bryan', 'Gerardo', 'Cruz', '9512308915', '2026-05-12 22:06:33'),
+	(110, 2, 'Bryan', 'Jared', 'De La Paz', '9514900512', '2026-05-12 22:10:12'),
+	(111, 2, 'Bryan', 'Alejandra', 'Garcia', '9519042890', '2026-05-12 22:12:20'),
+	(112, 1, 'Bryan', 'Angel', 'Hernandez', '5578985123', '2026-05-12 22:19:56'),
+	(113, 1, 'Bryan', 'Omar', 'Robles', '9518792541', '2026-05-12 22:28:05'),
+	(114, 1, 'Bryan', 'Osiel', 'Mendez', '9519019035', '2026-05-12 22:29:57'),
+	(115, 1, 'Bryan', 'Cliente General', '', '9512001542', '2026-05-19 06:20:12'),
+	(116, 1, 'Bryan', 'Omar', 'RAMIREZ', 'Cruz', '2026-05-20 20:13:46');
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

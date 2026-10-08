@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Farmacias Omega</title>
+    <link rel="stylesheet" href="css/style_contacto.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/logo.ico" type="image/x-icon">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS 
+    <link rel="stylesheet" href="styles.css">-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script defer src="js/script_contacto.js"></script>
+</head>
+
+
+<style>
+
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* ================= HEADER ================= */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo img {
+    width: 220px;
+}
+
+.info-contacto {
+    font-size: 14px;
+}
+
+.info-contacto .telefono {
+      color: rgb(6, 137, 181);   /* Azul personalizado para destacar el número de teléfono */
+     /* font-weight: bold;          Texto en negrita */
+      font-size: 14px;            /* Tamaño de fuente estándar (igual al tamaño base del padre) */
+  }
+
+  /* Estilo específico para el texto de servicio dentro de .info-contacto */
+  .info-contacto .servicio {
+      color: red;                /* Rojo para llamar la atención */
+      font-size: 14px;          /* Ligeramente más pequeño que el tamaño base */
+  }
+
+.redes a {
+    font-size: 20px;
+    margin-left: 15px;
+    color: #0689b5;
+    transition: 0.3s;
+}
+
+.redes a:hover {
+    color: #ff006d;
+}
+
+/* ================= NAV ================= */
+.nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+    padding: 15px 60px;
+    background: white;
+    border-top: 1px solid black;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #0689b5;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: #ff006d;
+}
+
+/* ================= HERO ================= */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 60px;
+    background: linear-gradient(to right, #0689b5, #00b4d8);
+    color: white;
+}
+
+.hero-texto {
+    max-width: 50%;
+}
+
+.hero-texto h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.hero-texto p {
+    margin-bottom: 25px;
+}
+
+.hero-botones button {
+    padding: 10px 20px;
+    border: none;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.hero-botones button:first-child {
+    background: #ff006d;
+    color: white;
+}
+
+.hero-botones .secundario {
+    background: white;
+    color: #0689b5;
+}
+
+/* ================= BENEFICIOS ================= */
+.beneficios {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 60px;
+    background: white;
+}
+
+.beneficio {
+    background: #f1f1f1;
+    padding: 20px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* ================= CATEGORÍAS ================= */
+.categorias {
+    padding: 60px;
+}
+
+.categorias h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #0689b5;
+}
+
+.grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.categoria {
+    height: 150px;
+    background: #ddd;
+    border-radius: 10px;
+}
+
+/* ================= PRODUCTOS ================= */
+.productos-destacados {
+    padding: 60px;
+    background: white;
+}
+
+.productos-destacados h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #0689b5;
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.producto {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+}
+
+.img-producto {
+    height: 180px;
+    background: #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.producto h3 {
+    margin-bottom: 10px;
+}
+
+.producto p {
+    color: #ff006d;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.producto button {
+    background: #0689b5;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ================= GUÍA ================= */
+.guia {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px;
+    background: #f1f1f1;
+}
+
+.guia-texto {
+    width: 50%;
+}
+
+.guia-pasos {
+    width: 40%;
+}
+
+.guia-pasos div {
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+/* ================= TESTIMONIOS ================= */
+.testimonios {
+    padding: 60px;
+    background: white;
+}
+
+.testimonios h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.testimonio {
+    height: 120px;
+    background: #eee;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+/* ================= ESTADÍSTICAS ================= */
+.estadisticas {
+    display: flex;
+    justify-content: space-around;
+    padding: 60px;
+    background: #0689b5;
+    color: white;
+}
+
+.stat {
+    text-align: center;
+}
+
+/* ================= BLOG ================= */
+.blog {
+    padding: 60px;
+    background: white;
+}
+
+.blog h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.articulos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.articulo {
+    height: 150px;
+    background: #ddd;
+    border-radius: 8px;
+}
+
+/* ================= NEWSLETTER ================= */
+.newsletter {
+    padding: 60px;
+    background: #ff006d;
+    color: white;
+    text-align: center;
+}
+
+.newsletter form {
+    margin-top: 20px;
+}
+
+.newsletter input {
+    padding: 10px;
+    width: 250px;
+    border: none;
+    border-radius: 5px;
+}
+
+.newsletter button {
+    padding: 10px 15px;
+    border: none;
+    background: #0689b5;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    background: #222;
+    color: white;
+    padding: 40px 60px;
+    text-align: center;
+}
+
+.footer img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.footer-redes a {
+    color: white;
+    font-size: 20px;
+    margin: 0 10px;
+}
+
+.copy {
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-texto {
+        max-width: 100%;
+    }
+
+    .beneficios,
+    .estadisticas {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .guia {
+        flex-direction: column;
+    }
+
+    .guia-texto,
+    .guia-pasos {
+        width: 100%;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+</style>
+
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+
+        <div class="logo">
+            <a href="Farmacia_inicio.html">
+                <img src="img/logo.png" alt="Farmacias Omega Logo">
+            </a>
+        </div>
+
+        <div class="info-contacto">
+            <div class="telefono"><strong>Atención a clientes:</strong> 951 516 6641</div>
+          <div class="servicio">Servicio a domicilio sin costo</div>
+        </div>
+
+        <div class="redes">
+            <a href="https://es-la.facebook.com/farmaciasomegaoficial/"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/farmaciasomegaoficial/"><i class="fab fa-instagram"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=+5219511026829&text=%C2%A
+        1Hola!%20Quisiera%20chatear%20con%20alguien%20de%20Farmacias%20Omega."><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+    </header>
+
+
+    <!-- ================= NAV ================= -->
+    <nav class="nav">
+        <a href="#">Farmacia</a>
+        <a href="#">Noticias</a>
+        <a href="#">Dermatología</a>
+        <a href="#">Perfumería</a>
+        <!--<a href="#">Tienda</a>-->
+        <a href="Contacto.html">Contacto</a>
+        <a href="1_login.php">POS</a>
+    </nav>
+
+
+    <div class="container">
+
+        <!-- TÍTULO -->
+        <div class="section-title">
+            <span>CONTÁCTANOS</span>
+            <h2><span>Ponte en contacto</span> con nosotros</h2>
+        </div>
+
+        <!-- GRID -->
+        <div class="contact-grid">
+
+            <!-- =================================================
+                FORMULARIO DE CONTACTO
+            ================================================== -->
+            <form class="contact-form" id="contactForm">
+
+                <div class="form-group">
+                    <label>Nombre *</label>
+                    <input type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Apellido *</label>
+                    <input type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone *</label>
+                    <input type="tel">
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Sujeto *</label>
+                    <input type="text">
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Tu mensaje *</label>
+                    <textarea></textarea>
+                </div>
+
+                <button class="btn-send">Enviar Mensaje</button>
+            </form>
+
+            <!-- =================================================
+                TARJETA DE INFORMACIÓN
+            ================================================== -->
+            <div class="info-card">
+
+                <div class="info-block">
+                    <h3>Dirección</h3>
+                    <p>Carr. Cristobal Colón 201a, Santa Rosa Panzacola, 68039 Oaxaca de Juárez, Oax., México</p>
+                </div>
+
+                <div class="info-block">
+                    <h3>Contacto</h3>
+                    <p>Telefono: 951 516 6641</p>
+                    <p>Email: farmaciasomegaoficial@gmail.com</p>
+                </div>
+
+                <div class="info-block">
+                    <h3>Horario Laboral</h3>
+
+                    <div class="hours-row">
+                        <span>Monday to Friday</span>
+                        <span>09:00 - 22:00</span>
+                    </div>
+
+                    <div class="hours-row">
+                        <span>Saturday</span>
+                        <span>11:00 - 20:00</span>
+                    </div>
+
+                    <div class="hours-row">
+                        <span>Sunday</span>
+                        <span>Closed</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- =====================================================
+            MAPA INTERACTIVO
+        ====================================================== -->
+
+
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d238.35799794228993!2d-96.745338!3d17.085954!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c721ff22909e29%3A0xed2962bf47bedc55!2sFarmacias%20Omega%2C%20Sucursal%20Santa%20Rosa!5e0!3m2!1ses!2sus!4v1777762742289!5m2!1ses!2sus" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>        
+
+    
+
+    </div>
+
+
+
+
+
+  
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <div class="footer-logo">
+            <img src="img/logo.ico" alt="Logo pequeño">
+        </div>
+
+        <div class="footer-links">
+            <p>Enlaces rápidos</p>
+        </div>
+
+        <div class="footer-contacto">
+            <p>951 515 4461</p>
+            <p>Oaxaca, México</p>
+        </div>
+
+        <div class="footer-redes">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <p class="copy">© 2026 Farmacias Omega - Todos los derechos reservados</p>
+
+    </footer>
+
+</body>
+</html>
