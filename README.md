@@ -1,6 +1,6 @@
 # 💊 FARMACIAS OMEGA
 
-!\[Dashboard](img/dashboard.png)
+\[Dashboard](img/dashboard.png)
 
 **"Sistema Integral de Gestión Farmacéutica"**
 *Administración de ventas, inventario y operaciones*
@@ -10,7 +10,7 @@ Farmacias Omega es un sistema web diseñado para optimizar la gestión interna d
 
 Su objetivo es automatizar procesos administrativos y operativos, mejorando la organización, productividad y control del negocio.
 
-\---
+---
 
 ## 🔹 Características
 
@@ -27,39 +27,39 @@ Su objetivo es automatizar procesos administrativos y operativos, mejorando la o
 * 📊 Dashboard con estadísticas y reportes
 * 🔐 Sistema de autenticación y control de acceso
 
-\---
+---
 
 ## 🖼️ Capturas
 
 ### Dashboard principal
 
-!\[Dashboard](img/dashboard.png)
+\[Dashboard](img/dashboard.png)
 
 ### Gestión de productos
 
-!\[Productos](img/productos.png)
+\[Productos](img/productos.png)
 
 ### Gestión de proveedores
 
-!\[Clientes](img/proveedores.png)
+\[Clientes](img/proveedores.png)
 
 ### Gestión de usuarios
 
-!\[Empleados](img/usuarios.png)
+\[Empleados](img/usuarios.png)
 
 ### Gestión de perfiles
 
-!\[Inventario](img/perfiles.png)
+\[Inventario](img/perfiles.png)
 
 ### Gestión de ventas
 
-!\[Ventas](img/ventas.png)
+\[Ventas](img/ventas.png)
 
 ### Gestión de reportes
 
-!\[Ventas](img/reportes.png)
+\[Ventas](img/reportes.png)
 
-\---
+---
 
 ## ⚡ Tecnologías utilizadas
 
@@ -71,7 +71,7 @@ Su objetivo es automatizar procesos administrativos y operativos, mejorando la o
 * **Chart.js**
 * **XAMPP**
 
-\---
+---
 
 ## 📂 Estructura del proyecto
 
@@ -100,7 +100,7 @@ FarmaciasOmega/
 │── reportes.php             # Reportes del sistema
 ```
 
-\---
+---
 
 ## 🚀 Instalación
 
@@ -135,7 +135,7 @@ conexion.php
 http://localhost/farmacias-omega
 ```
 
-\---
+---
 
 ## 🔒 Seguridad
 
@@ -147,15 +147,15 @@ Farmacias Omega implementa:
 * Gestión segura de información
 * Restricción de acceso por roles
 
-\---
+---
 
 ## 📌 Estado del proyecto
 
 🟢 En desarrollo activo
 
-\---
+---
 
 ## 👨‍💻 Autor
 
-Desarrollado por **El\_Inge**
+Desarrollado por **El_Inge**
 
