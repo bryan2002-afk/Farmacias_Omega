@@ -1,6 +1,6 @@
 # 💊 FARMACIAS OMEGA
 
-![Dashboard](img/dashboard.png)
+!\[Dashboard](img/dashboard.png)
 
 **"Sistema Integral de Gestión Farmacéutica"**
 *Administración de ventas, inventario y operaciones*
@@ -10,7 +10,7 @@ Farmacias Omega es un sistema web diseñado para optimizar la gestión interna d
 
 Su objetivo es automatizar procesos administrativos y operativos, mejorando la organización, productividad y control del negocio.
 
----
+\---
 
 ## 🔹 Características
 
@@ -27,35 +27,39 @@ Su objetivo es automatizar procesos administrativos y operativos, mejorando la o
 * 📊 Dashboard con estadísticas y reportes
 * 🔐 Sistema de autenticación y control de acceso
 
----
+\---
 
 ## 🖼️ Capturas
 
 ### Dashboard principal
 
-![Dashboard](img/dashboard.png)
-
-### Gestión de inventario
-
-![Inventario](img/1.png)
-
-### Gestión de ventas
-
-![Ventas](img/2.png)
+!\[Dashboard](img/dashboard.png)
 
 ### Gestión de productos
 
-![Productos](img/3.png)
+!\[Productos](img/productos.png)
 
-### Gestión de clientes
+### Gestión de proveedores
 
-![Clientes](img/4.png)
+!\[Clientes](img/proveedores.png)
 
-### Gestión de empleados
+### Gestión de usuarios
 
-![Empleados](img/5.png)
+!\[Empleados](img/usuarios.png)
 
----
+### Gestión de perfiles
+
+!\[Inventario](img/perfiles.png)
+
+### Gestión de ventas
+
+!\[Ventas](img/ventas.png)
+
+### Gestión de reportes
+
+!\[Ventas](img/reportes.png)
+
+\---
 
 ## ⚡ Tecnologías utilizadas
 
@@ -67,7 +71,7 @@ Su objetivo es automatizar procesos administrativos y operativos, mejorando la o
 * **Chart.js**
 * **XAMPP**
 
----
+\---
 
 ## 📂 Estructura del proyecto
 
@@ -77,10 +81,10 @@ FarmaciasOmega/
 │── css/                     # Archivos de estilos
 │── js/                      # Scripts JavaScript
 │── img/                     # Recursos visuales
-│── ima_productos/           # Imágenes de productos
-│── ima_usuarios/            # Imágenes de usuarios
-│── ima_empleados/           # Imágenes de empleados
-│── ima_proveedores/         # Imágenes de proveedores
+│── ima\\\_productos/           # Imágenes de productos
+│── ima\\\_usuarios/            # Imágenes de usuarios
+│── ima\\\_empleados/           # Imágenes de empleados
+│── ima\\\_proveedores/         # Imágenes de proveedores
 │── auth.php                 # Validación de sesión
 │── conexion.php             # Conexión a base de datos
 │── dashboard.php            # Panel principal
@@ -92,11 +96,11 @@ FarmaciasOmega/
 │── proveedores.php          # Gestión de proveedores
 │── empleados.php            # Gestión de empleados
 │── categorias.php           # Gestión de categorías
-│── productos_lista.php      # Lista de productos
+│── productos\\\_lista.php      # Lista de productos
 │── reportes.php             # Reportes del sistema
 ```
 
----
+\---
 
 ## 🚀 Instalación
 
@@ -125,14 +129,13 @@ conexion.php
 ```
 
 5. Inicia Apache y MySQL desde XAMPP.
-
 6. Abre en tu navegador:
 
 ```bash
 http://localhost/farmacias-omega
 ```
 
----
+\---
 
 ## 🔒 Seguridad
 
@@ -144,14 +147,15 @@ Farmacias Omega implementa:
 * Gestión segura de información
 * Restricción de acceso por roles
 
----
+\---
 
 ## 📌 Estado del proyecto
 
 🟢 En desarrollo activo
 
----
+\---
 
 ## 👨‍💻 Autor
 
-Desarrollado por **El_Inge**
+Desarrollado por **El\_Inge**
+
