@@ -1,6 +1,6 @@
 # 💊 FARMACIAS OMEGA
 
-\[Dashboard](img/dashboard.png)
+![Dashboard](img/dashboard.png)
 
 **"Sistema Integral de Gestión Farmacéutica"**
 *Administración de ventas, inventario y operaciones*
@@ -33,31 +33,31 @@ Su objetivo es automatizar procesos administrativos y operativos, mejorando la o
 
 ### Dashboard principal
 
-\[Dashboard](img/dashboard.png)
+![Dashboard](img/dashboard.png)
 
 ### Gestión de productos
 
-\[Productos](img/productos.png)
+![Productos](img/productos.png)
 
 ### Gestión de proveedores
 
-\[Clientes](img/proveedores.png)
+![Clientes](img/proveedores.png)
 
 ### Gestión de usuarios
 
-\[Empleados](img/usuarios.png)
+![Empleados](img/usuarios.png)
 
 ### Gestión de perfiles
 
-\[Inventario](img/perfiles.png)
+![Inventario](img/perfiles.png)
 
 ### Gestión de ventas
 
-\[Ventas](img/ventas.png)
+![Ventas](img/ventas.png)
 
 ### Gestión de reportes
 
-\[Ventas](img/reportes.png)
+![Ventas](img/reportes.png)
 
 ---
 
