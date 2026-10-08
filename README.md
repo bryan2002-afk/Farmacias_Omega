@@ -81,10 +81,10 @@ FarmaciasOmega/
 │── css/                     # Archivos de estilos
 │── js/                      # Scripts JavaScript
 │── img/                     # Recursos visuales
-│── ima\\\_productos/           # Imágenes de productos
-│── ima\\\_usuarios/            # Imágenes de usuarios
-│── ima\\\_empleados/           # Imágenes de empleados
-│── ima\\\_proveedores/         # Imágenes de proveedores
+│── ima_productos/           # Imágenes de productos
+│── ima_usuarios/            # Imágenes de usuarios
+│── ima_empleados/           # Imágenes de empleados
+│── ima_proveedores/         # Imágenes de proveedores
 │── auth.php                 # Validación de sesión
 │── conexion.php             # Conexión a base de datos
 │── dashboard.php            # Panel principal
@@ -96,7 +96,7 @@ FarmaciasOmega/
 │── proveedores.php          # Gestión de proveedores
 │── empleados.php            # Gestión de empleados
 │── categorias.php           # Gestión de categorías
-│── productos\\\_lista.php      # Lista de productos
+│── productos_lista.php      # Lista de productos
 │── reportes.php             # Reportes del sistema
 ```
 
@@ -107,7 +107,7 @@ FarmaciasOmega/
 1. Clona este repositorio:
 
 ```bash
-git clone https://github.com/tuusuario/farmacias-omega.git
+git clone https://github.com/tuusuario/Farmacias_Omega.git
 ```
 
 2. Mueve el proyecto a tu carpeta de servidor local:
@@ -132,7 +132,7 @@ conexion.php
 6. Abre en tu navegador:
 
 ```bash
-http://localhost/farmacias-omega
+http://localhost/Farmacias_Omega
 ```
 
 ---
