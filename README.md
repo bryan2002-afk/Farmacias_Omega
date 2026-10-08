@@ -1,6 +1,6 @@
 # 💊 FARMACIAS OMEGA
 
-![Dashboard](img/dashboard.png)
+![Dashboard](img/logo.png)
 
 **"Sistema Integral de Gestión Farmacéutica"**
 *Administración de ventas, inventario y operaciones*
